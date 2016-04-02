@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		33DDC2571CB003A500C46753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDC2561CB003A500C46753 /* AppDelegate.swift */; };
+		33DDC2591CB003A500C46753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDC2581CB003A500C46753 /* ViewController.swift */; };
+		33DDC25C1CB003A500C46753 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DDC25A1CB003A500C46753 /* Main.storyboard */; };
+		33DDC25E1CB003A500C46753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33DDC25D1CB003A500C46753 /* Assets.xcassets */; };
+		33DDC2611CB003A500C46753 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DDC25F1CB003A500C46753 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33DDC2531CB003A400C46753 /* GeoJotsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoJotsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33DDC2561CB003A500C46753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33DDC2581CB003A500C46753 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		33DDC25B1CB003A500C46753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		33DDC25D1CB003A500C46753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33DDC2601CB003A500C46753 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33DDC2621CB003A500C46753 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33DDC2501CB003A400C46753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33DDC24A1CB003A400C46753 = {
+			isa = PBXGroup;
+			children = (
+				33DDC2551CB003A500C46753 /* GeoJotsProject */,
+				33DDC2541CB003A400C46753 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33DDC2541CB003A400C46753 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33DDC2531CB003A400C46753 /* GeoJotsProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33DDC2551CB003A500C46753 /* GeoJotsProject */ = {
+			isa = PBXGroup;
+			children = (
+				33DDC2561CB003A500C46753 /* AppDelegate.swift */,
+				33DDC2581CB003A500C46753 /* ViewController.swift */,
+				33DDC25A1CB003A500C46753 /* Main.storyboard */,
+				33DDC25D1CB003A500C46753 /* Assets.xcassets */,
+				33DDC25F1CB003A500C46753 /* LaunchScreen.storyboard */,
+				33DDC2621CB003A500C46753 /* Info.plist */,
+			);
+			path = GeoJotsProject;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33DDC2521CB003A400C46753 /* GeoJotsProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33DDC2651CB003A500C46753 /* Build configuration list for PBXNativeTarget "GeoJotsProject" */;
+			buildPhases = (
+				33DDC24F1CB003A400C46753 /* Sources */,
+				33DDC2501CB003A400C46753 /* Frameworks */,
+				33DDC2511CB003A400C46753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoJotsProject;
+			productName = GeoJotsProject;
+			productReference = 33DDC2531CB003A400C46753 /* GeoJotsProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33DDC24B1CB003A400C46753 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Joseph Ditton";
+				TargetAttributes = {
+					33DDC2521CB003A400C46753 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = D2G26QBECG;
+					};
+				};
+			};
+			buildConfigurationList = 33DDC24E1CB003A400C46753 /* Build configuration list for PBXProject "GeoJotsProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33DDC24A1CB003A400C46753;
+			productRefGroup = 33DDC2541CB003A400C46753 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33DDC2521CB003A400C46753 /* GeoJotsProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33DDC2511CB003A400C46753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DDC2611CB003A500C46753 /* LaunchScreen.storyboard in Resources */,
+				33DDC25E1CB003A500C46753 /* Assets.xcassets in Resources */,
+				33DDC25C1CB003A500C46753 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33DDC24F1CB003A400C46753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33DDC2591CB003A500C46753 /* ViewController.swift in Sources */,
+				33DDC2571CB003A500C46753 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33DDC25A1CB003A500C46753 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33DDC25B1CB003A500C46753 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		33DDC25F1CB003A500C46753 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33DDC2601CB003A500C46753 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33DDC2631CB003A500C46753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		33DDC2641CB003A500C46753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		33DDC2661CB003A500C46753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = GeoJotsProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d3vBros.GeoJotsProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		33DDC2671CB003A500C46753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = GeoJotsProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = d3vBros.GeoJotsProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33DDC24E1CB003A400C46753 /* Build configuration list for PBXProject "GeoJotsProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DDC2631CB003A500C46753 /* Debug */,
+				33DDC2641CB003A500C46753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33DDC2651CB003A500C46753 /* Build configuration list for PBXNativeTarget "GeoJotsProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33DDC2661CB003A500C46753 /* Debug */,
+				33DDC2671CB003A500C46753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 33DDC24B1CB003A400C46753 /* Project object */;
+}
