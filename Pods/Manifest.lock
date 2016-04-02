@@ -1,10 +1,13 @@
 PODS:
+  - Font-Awesome-Swift (1.4.6)
   - Material (1.38.4)
 
 DEPENDENCIES:
+  - Font-Awesome-Swift (~> 1.4.6)
   - Material (~> 1.0)
 
 SPEC CHECKSUMS:
+  Font-Awesome-Swift: a965c23e619514be65de9b113f49038ca683c1bb
   Material: f3357eb593edaaeb5bf4243a8f9209d44a779d9e
 
 COCOAPODS: 0.39.0

@@ -16,19 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeoJots" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpr-qc-MiD">
-                                <rect key="frame" x="268" y="72" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Fpr-qc-MiD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7ri-g5-xp0"/>
-                            <constraint firstItem="Fpr-qc-MiD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="On6-2h-CKo"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EOg-4e-EUz"/>
                 </viewController>
@@ -39,7 +27,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VAc-5g-LLn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z0j-hK-A81" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="z0j-hK-A81" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zvg-k3-oY6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
