@@ -3,4 +3,4 @@ use_frameworks!
 
 pod 'Material', '~> 1.0'
 pod 'Font-Awesome-Swift', '~> 1.4.6'
-
+pod 'Firebase', '>= 2.5.1'
