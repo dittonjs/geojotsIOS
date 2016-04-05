@@ -28,13 +28,15 @@ class MainNavbar{
         let image: UIImage? = UIImage(icon: FAType.FABars, size: imageSize, textColor: MaterialColor.white, backgroundColor: backgroundColor)
         
         // Menu button.
-        let menuButton: FlatButton = FlatButton()
+        let menuButton: FabButton = FabButton()
         menuButton.pulseScale = false
         menuButton.pulseColor = MaterialColor.white
         menuButton.tintColor = MaterialColor.white
         menuButton.setImage(image, forState: .Normal)
         menuButton.setImage(image, forState: .Highlighted)
         menuButton.layer.zPosition = 11
+        menuButton.backgroundColor = backgroundColor
+        menuButton.depth = .None
         // Finish Setup.
 
         toolbar.statusBarStyle = .LightContent
@@ -42,9 +44,9 @@ class MainNavbar{
         toolbar.grid.spacing = 30
         toolbar.titleLabel = titleLabel
         toolbar.leftControls = [menuButton]
-        toolbar.contentInset = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 0)
+        toolbar.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         toolbar.layer.zPosition = 10
-
+        toolbar.heightForPortraitOrientation = 70
         parentView.addSubview(toolbar)
     }
 }

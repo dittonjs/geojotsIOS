@@ -18,19 +18,17 @@ class RoomCell :MaterialCollectionViewCell {
         self.borderWidthPreset = MaterialBorder.Border1
         self.borderColor = MaterialColor.grey.lighten1
         
+        // colors for dots
         let circleColors = [
             GeoJotsTheme.blue,
             GeoJotsTheme.yellow,
             GeoJotsTheme.green,
             GeoJotsTheme.red
         ]
-
-        let letterCircle = MaterialView(frame: CGRectMake(0, 0 ,48,48))
+        
+        // the dot
+        let letterCircle = MaterialView(frame: CGRectMake(15, 15, 45, 45))
         letterCircle.shape = .Circle
-        letterCircle.grid.columns = 2
-        letterCircle.grid.rows = 8
-        letterCircle.grid.offset.rows = 2
-        letterCircle.grid.offset.columns = 1
         letterCircle.backgroundColor = circleColors[index % 4]
         
         let letterLabel = UILabel()
@@ -41,40 +39,45 @@ class RoomCell :MaterialCollectionViewCell {
         letterCircle.addSubview(letterLabel)
         letterCircle.grid.views = [letterLabel]
         
+        // the content
+        let contentWidth = UIScreen.mainScreen().bounds.size.width - 90
+        let contentContainer = MaterialView(frame: CGRectMake(75, 15, contentWidth, 45))
+        contentContainer.grid.axis.direction = .None
+
         let membersLabel = UILabel()
         membersLabel.setFAText(prefixText: "", icon: FAType.FAUser, postfixText: " 17", size: 15)
         membersLabel.textColor = MaterialColor.grey.lighten1
-        membersLabel.grid.offset.columns = 3
-        membersLabel.grid.rows = 4
+        membersLabel.grid.rows = 6
         membersLabel.grid.offset.rows = 6
         membersLabel.grid.columns = 2
         
         let distanceLabel = UILabel()
         distanceLabel.setFAText(prefixText: "", icon: FAType.FAMapMarker, postfixText: " 28m", size: 15)
         distanceLabel.textColor = MaterialColor.grey.lighten1
-        distanceLabel.grid.offset.columns = 5
-        distanceLabel.grid.rows = 4
+        distanceLabel.grid.offset.columns = 2
+        distanceLabel.grid.rows = 6
         distanceLabel.grid.offset.rows = 6
         distanceLabel.grid.columns = 2
         
         let cellTitleLabel = UILabel()
         cellTitleLabel.text = title
-        cellTitleLabel.grid.offset.columns = 3
-        cellTitleLabel.grid.rows = 4
-        cellTitleLabel.grid.offset.rows = 2
-        cellTitleLabel.grid.columns = 7
+        cellTitleLabel.grid.rows = 6
+        cellTitleLabel.grid.columns = 12
         cellTitleLabel.font = RobotoFont.boldWithSize(17)
         
+        // add content to content view
+        contentContainer.addSubview(cellTitleLabel)
+        contentContainer.addSubview(distanceLabel)
+        contentContainer.addSubview(membersLabel)
+        contentContainer.grid.views = [cellTitleLabel, membersLabel, distanceLabel]
+        
+        // remove subviews
         for view in self.contentView.subviews {
             view.removeFromSuperview()
-        }
+        } // this is hacky i should look for a better solution for this.
         
+        // add content
         self.contentView.addSubview(letterCircle)
-        self.contentView.addSubview(cellTitleLabel)
-        self.contentView.addSubview(membersLabel)
-        self.contentView.addSubview(distanceLabel)
-        self.contentView.grid.axis.direction = .None
-        self.contentView.grid.spacingPreset = MaterialSpacing.Spacing3
-        self.contentView.grid.views = [letterCircle, cellTitleLabel, membersLabel, distanceLabel]
+        self.contentView.addSubview(contentContainer)
     }
 }

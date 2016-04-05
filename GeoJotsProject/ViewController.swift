@@ -13,7 +13,7 @@ import Font_Awesome_Swift
 class ViewController: UIViewController {
     private var mainNav: MainNavbar = MainNavbar()
     private var roomList: RoomList = RoomList()
-    private var createRoomBtn: FabButton = FabButton(frame: CGRectMake(0, 0 ,75,75))
+    private var createRoomBtn: CreateRoomButton = CreateRoomButton()
     
     
 //    hard coded for now
@@ -50,7 +50,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         mainNav.initialize(view)
         roomList.initialize(view, dataSource: self, delegate: self)
-        createButton()
+        
+        let startX: CGFloat = UIScreen.mainScreen().bounds.size.width - 15
+        let startY: CGFloat = UIScreen.mainScreen().bounds.size.height - 15
+        createRoomBtn.initialize(view, action: #selector(self.transitionToCreateRoom), startX: startX, startY: startY, parentRef: self)
         prepareView()
     }
 
@@ -60,30 +63,23 @@ class ViewController: UIViewController {
     
     func prepareView() {
         view.backgroundColor = MaterialColor.white
-        view.grid.axis.direction = .None
-        view.grid.views = [createRoomBtn]
-        view.grid.axis.columns = 4
-        view.grid.axis.rows = 15
-        view.grid.spacingPreset = MaterialSpacing.Spacing3
-        view.grid.contentInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 10, right: 10)
-        
     }
     
-    func createButton(){
-        
-        var imageSize = CGSize()
-        imageSize.width = 30
-        imageSize.height = 30
-        let image: UIImage? = UIImage(icon: FAType.FAPlus, size: imageSize, textColor: MaterialColor.white, backgroundColor: GeoJotsTheme.salmon)
-        createRoomBtn.setImage(image, forState: .Normal)
-        createRoomBtn.setImage(image, forState: .Highlighted)
-        createRoomBtn.grid.rows = 2
-        createRoomBtn.grid.columns = 1
-        createRoomBtn.grid.offset.rows = 13
-        createRoomBtn.grid.offset.columns = 3
-        createRoomBtn.layer.zPosition = 10
-        createRoomBtn.backgroundColor = GeoJotsTheme.salmon
-        view.addSubview(createRoomBtn)
+    
+    func transitionToCreateRoom(sender: UIButton!){
+        self.performSegueWithIdentifier("create", sender: sender)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "room" {
+            // setup controller here
+        }
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        print("orientation changed")
+        createRoomBtn.updateRect(UIScreen.mainScreen().bounds.size.width - 15, startY: UIScreen.mainScreen().bounds.size.height - 15)
+        roomList.reload()
     }
 }
 
