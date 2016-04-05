@@ -14,12 +14,27 @@ import Font_Awesome_Swift
 class CreateController :UIViewController {
     
     private var mainNav = MainNavbar()
-    private var leaveRoomButton = FabButton(frame: CGRectMake(350, 300, 75, 75))
+    private var cancelButton = CancelButton()
+    private var titleTextField = TitleTextField()
+    private var descriptionTextView = DescriptionTextView()
     override func viewDidLoad() {
         super.viewDidLoad()
         mainNav.initialize(view)
-        leaveRoomButton.layer.zPosition = 20
-        view.addSubview(leaveRoomButton)
+        
+        let startX: CGFloat = UIScreen.mainScreen().bounds.size.width - 15
+        let startY: CGFloat = 107
+        cancelButton.initialize(view, action: #selector(self.cancelCreation), startX: startX, startY: startY, parentRef: self)
+        let top: CGFloat = 207
+        let left: CGFloat = 30
+        let bottom: CGFloat = 175
+        let right: CGFloat = 30
+        descriptionTextView.initialize(view, top: top, left: left, bottom: bottom, right: right)
+        titleTextField.initialize(view, startX: 30, startY: 120)
+    }
+    
+    func cancelCreation(){
+        print("return to root")
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }

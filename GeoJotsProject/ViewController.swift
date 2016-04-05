@@ -13,7 +13,7 @@ import Font_Awesome_Swift
 class ViewController: UIViewController {
     private var mainNav: MainNavbar = MainNavbar()
     private var roomList: RoomList = RoomList()
-    private var createRoomBtn: CreateRoomButton = CreateRoomButton()
+    private var createRoomBtn: AddButton = AddButton()
     
     
 //    hard coded for now

@@ -1,5 +1,5 @@
 //
-//  CreateRoomButton.swift
+//  CancelButton.swift
 //  GeoJotsProject
 //
 //  Created by Joseph Ditton on 4/4/16.
@@ -9,15 +9,15 @@
 import Foundation
 import Material
 import Font_Awesome_Swift
-class CreateRoomButton {
+
+class CancelButton {
     var button = FabButton()
-    
     func initialize(parentView: UIView, action: Selector, startX: CGFloat, startY: CGFloat, parentRef: UIViewController){
         button.frame = CGRectMake(startX - 75, startY - 75, 75, 75)
         var imageSize = CGSize()
         imageSize.width = 30
         imageSize.height = 30
-        let image: UIImage? = UIImage(icon: FAType.FAPlus, size: imageSize, textColor: MaterialColor.white, backgroundColor: GeoJotsTheme.salmon)
+        let image: UIImage? = UIImage(icon: FAType.FATimes, size: imageSize, textColor: MaterialColor.white, backgroundColor: GeoJotsTheme.salmon)
         button.setImage(image, forState: .Normal)
         button.setImage(image, forState: .Highlighted)
         button.grid.rows = 2
@@ -33,6 +33,4 @@ class CreateRoomButton {
     func updateRect(startX: CGFloat, startY: CGFloat){
         button.frame = CGRectMake(startX - 75, startY - 75, 75, 75)
     }
-    
-    
 }
