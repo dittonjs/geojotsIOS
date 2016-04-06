@@ -13,6 +13,7 @@ import UIKit
 
 class DescriptionTextView: NSObject, TextDelegate, TextViewDelegate {
     /// A Text storage object that monitors the changes within the textView.
+    
     lazy var text: Text = Text()
     
     /// A TextView UI Component.
