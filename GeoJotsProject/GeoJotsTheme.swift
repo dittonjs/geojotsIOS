@@ -15,6 +15,7 @@ class GeoJotsTheme {
     static var green = UIColor.init(red: 125/256, green: 197/256, blue: 128/256, alpha: 1)
     static var red = UIColor.init(red: 213/256, green: 44/256, blue: 47/256, alpha: 1)
     static var teal = UIColor.init(red: 34/256, green: 184/256, blue: 184/256, alpha: 1)
+    static var darkTeal = UIColor.init(red: 27/256, green: 151/256, blue: 137/256, alpha: 1)
     static var salmon = UIColor.init(red: 240/256, green: 84/256, blue: 86/256, alpha: 1)
     
 }
