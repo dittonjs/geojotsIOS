@@ -14,12 +14,13 @@ import Firebase
 
 class CreateMessageBoardButton {
     var button = RaisedButton()
-    func initialize(parentView: UIView, startX: CGFloat, startY: CGFloat){
+    func initialize(parentView: UIView, startX: CGFloat, startY: CGFloat, action: Selector, parent: UIViewController){
         button.frame = CGRectMake(startX, startY, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - startY) // always at the bottom
-        button.setTitle("Create Message Board", forState: .Normal)
+        button.setTitle("Create Jot", forState: .Normal)
         button.layer.cornerRadius = 0
         button.backgroundColor = GeoJotsTheme.salmon
         button.depth = .Depth3
+        button.addTarget(parent, action: action, forControlEvents: .TouchUpInside)
         parentView.addSubview(button)
     }
 }

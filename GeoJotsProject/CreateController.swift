@@ -11,26 +11,34 @@ import UIKit
 import Material
 import Font_Awesome_Swift
 import GoogleMaps
+import Firebase
+import GeoFire
 
 class CreateController :UIViewController {
-    
+
     private var mainNav = MainNavbar()
     private var cancelButton = CancelButton()
     private var titleTextField = TitleTextField()
     private var descriptionTextView = DescriptionTextView()
     private var createMessageBoardButton = CreateMessageBoardButton()
     private var mapView = GMSMapView()
-    private var mapCamera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6)
+    private var mapCamera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 15)
     private var mapMarker = GMSMarker()
+    private var radiusMarker = GMSCircle()
     private var locationManager = CLLocationManager()
+    private var radiusSlider = MaterialSlider()
+    private var radius: CLLocationDistance = 50
+    private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
     override func viewDidLoad() {
+
         super.viewDidLoad()
         setUpGeolocation()
         
         mainNav.initialize(view)
         
         let startX: CGFloat = UIScreen.mainScreen().bounds.size.width - 15
-        let startY: CGFloat = 107
+        var startY: CGFloat = 107
         cancelButton.initialize(view, action: #selector(self.cancelCreation), startX: startX, startY: startY, parentRef: self)
         
         let top: CGFloat = 217
@@ -41,9 +49,40 @@ class CreateController :UIViewController {
         
         titleTextField.initialize(view, startX: 30, startY: 120)
         
-        createMessageBoardButton.initialize(view, startX: 0, startY: UIScreen.mainScreen().bounds.size.height - 80)
+        createMessageBoardButton.initialize(view, startX: 0, startY: UIScreen.mainScreen().bounds.size.height - 80, action: #selector(self.createLocation), parent: self)
         
         prepareMap()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        startY = UIScreen.mainScreen().bounds.size.height / 2 + 50
+        let width = UIScreen.mainScreen().bounds.size.width - 60
+
+        radiusSlider.initialize(view, startX: 30, startY: startY, width: width, height: 10, parent: self, action: #selector(self.onSlide))
+    }
+    
+    func createLocation(){
+        
+        let geofireRef = Firebase(url: "https://geojots.firebaseio.com/jots")
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        let uuid = NSUUID().UUIDString
+        let jot = ["name": "Some cool title", "description": "this is the description", ]
+        geofireRef.setValue(<#T##value: AnyObject!##AnyObject!#>)
+    }
+    
+    func onSlide(sender: UISlider){
+        let slider = sender as UISlider;
+        radius = CLLocationDistance( 50 * trunc(slider.value * 100) + 50)
+        radiusMarker.radius     = radius
+        mapView.animateToZoom(15 - (50 * trunc(slider.value * 100) + 50)/1000)
+        radiusMarker.map        = mapView
+        
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func cancelCreation(){
@@ -65,22 +104,34 @@ class CreateController :UIViewController {
     }
     
     func prepareMap(){
-        let startY = UIScreen.mainScreen().bounds.size.height / 2 + 50
+        let startY = UIScreen.mainScreen().bounds.size.height / 2 + 70
         mapView.frame = CGRectMake(0, startY, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - startY - 80)
         mapView.camera = mapCamera
-        mapView.settings.setAllGesturesEnabled(false)
+        mapView.settings.rotateGestures = false
+        mapView.settings.scrollGestures = false
+        mapView.settings.tiltGestures   = false
+        mapView.delegate = self
         view.addSubview(mapView)
         
     }
     
 }
 
+extension CreateController: GMSMapViewDelegate {
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        dismissKeyboard()
+    }
+}
+
 extension CreateController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        lastLocation = locValue
         mapView.animateToLocation(locValue)
-        mapMarker.position = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
-        mapMarker.map = mapView
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        mapMarker.position      = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
+        mapMarker.map           = mapView
+        radiusMarker.position   = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+        radiusMarker.radius     = radius
+        radiusMarker.map        = mapView
     }
 }

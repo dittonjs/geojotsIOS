@@ -11,7 +11,7 @@ import Material
 
 class RoomList {
     private var collectionView: MaterialCollectionView!
-
+    
     func initialize(parentView: UIView, dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegate){
         collectionView = MaterialCollectionView(frame: CGRectMake(0, 70, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 70))
         collectionView.registerClass(RoomCell.self, forCellWithReuseIdentifier: "MaterialCollectionViewCell")

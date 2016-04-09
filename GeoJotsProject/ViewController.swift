@@ -97,7 +97,7 @@ extension ViewController :MaterialCollectionViewDataSource {
     
     /// Determines the number of items in the collectionView.
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSourceItems.count;
+        return dataSourceItems.count
     }
     
     /// Returns the number of sections.

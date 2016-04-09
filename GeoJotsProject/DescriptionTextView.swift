@@ -38,6 +38,7 @@ class DescriptionTextView: NSObject, TextDelegate, TextViewDelegate {
         textView.titleLabel!.font = RobotoFont.mediumWithSize(12)
         textView.titleLabelColor = MaterialColor.grey.base
         textView.titleLabelActiveColor = MaterialColor.blue.accent3
+        textView.scrollEnabled = false
         parentView.addSubview(textView)
         textView!.translatesAutoresizingMaskIntoConstraints = false
         MaterialLayout.alignToParent(parentView, child: textView!, top: top, left: left, bottom: bottom, right: right)
