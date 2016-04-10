@@ -58,6 +58,10 @@ class DescriptionTextView: NSObject, TextDelegate, TextViewDelegate {
         parentView.addSubview(progressLabel)
     }
     
+    func getValue() -> String {
+        return textView.text!
+    }
+    
     @objc func textWillProcessEdit(text: Text, textStorage: TextStorage, string: String, range: NSRange) {
         print("did i get called?")
         progressBar.progress = Float(text.string.characters.count) / 120

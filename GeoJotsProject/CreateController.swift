@@ -28,7 +28,7 @@ class CreateController :UIViewController {
     private var locationManager = CLLocationManager()
     private var radiusSlider = MaterialSlider()
     private var radius: CLLocationDistance = 50
-    private var lastLocation: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    private var lastLocation: CLLocation = CLLocation()
     
     override func viewDidLoad() {
 
@@ -64,11 +64,16 @@ class CreateController :UIViewController {
     
     func createLocation(){
         
-        let geofireRef = Firebase(url: "https://geojots.firebaseio.com/jots")
-        let geoFire = GeoFire(firebaseRef: geofireRef)
-        let uuid = NSUUID().UUIDString
-        let jot = ["name": "Some cool title", "description": "this is the description", ]
-        geofireRef.setValue(<#T##value: AnyObject!##AnyObject!#>)
+        let roomRef = Firebase(url: "https://geojots.firebaseio.com/rooms")
+        let locationRef = Firebase(url: "https://geojots.firebaseio.com/locations")
+        let geoFire = GeoFire(firebaseRef: locationRef)
+        
+        let room = ["name": titleTextField.getValue(), "description": descriptionTextView.getValue()]
+        roomRef.childByAutoId().setValue(room, withCompletionBlock: {
+            (error: NSError!, ref: Firebase!) in
+            print ("\(ref.key)")
+            geoFire.setLocation(self.lastLocation, forKey: ref.key)
+        })
     }
     
     func onSlide(sender: UISlider){
@@ -126,7 +131,7 @@ extension CreateController: GMSMapViewDelegate {
 extension CreateController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        lastLocation = locValue
+        lastLocation = manager.location!
         mapView.animateToLocation(locValue)
         mapMarker.position      = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
         mapMarker.map           = mapView

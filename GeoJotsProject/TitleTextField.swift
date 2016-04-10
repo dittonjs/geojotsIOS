@@ -25,4 +25,8 @@ class TitleTextField {
         textField.titleLabelActiveColor = MaterialColor.blue.accent3
         parentView.addSubview(textField)
     }
+    
+    func getValue() -> String {
+        return textField.text!
+    }
 }
