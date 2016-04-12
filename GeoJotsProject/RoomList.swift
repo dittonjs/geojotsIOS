@@ -26,7 +26,7 @@ class RoomList {
     
     func reload(){
         collectionView.reloadData()
-        collectionView.frame = CGRectMake(0, 70, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 70)
+        collectionView.frame = CGRectMake(0, 140, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 70)
     }
 }
 

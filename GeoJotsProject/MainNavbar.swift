@@ -10,23 +10,16 @@ import Material
 import Font_Awesome_Swift
 
 class MainNavbar{
-    private var toolbar: Toolbar = Toolbar()
+    private var toolbar: MaterialView = MaterialView()
     private var backgroundColor = GeoJotsTheme.teal
     func initialize(parentView: UIView) {
-        
-        // Title label.
-        let titleLabel: UILabel = UILabel()
-        titleLabel.text = "GeoJots"
-        titleLabel.textAlignment = .Left
-        titleLabel.textColor = MaterialColor.white
-        titleLabel.font = RobotoFont.bold
+    
         
         // Image size.
         var imageSize = CGSize()
         imageSize.width = 30
         imageSize.height = 30
-        let image: UIImage? = UIImage(icon: FAType.FABars, size: imageSize, textColor: MaterialColor.white, backgroundColor: backgroundColor)
-        
+        let image: UIImage? = UIImage(icon: FAType.FABars, size: imageSize, textColor: MaterialColor.white, backgroundColor: GeoJotsTheme.transparent)
         // Menu button.
         let menuButton: FabButton = FabButton()
         menuButton.pulseScale = false
@@ -35,18 +28,23 @@ class MainNavbar{
         menuButton.setImage(image, forState: .Normal)
         menuButton.setImage(image, forState: .Highlighted)
         menuButton.layer.zPosition = 11
-        menuButton.backgroundColor = backgroundColor
+        menuButton.backgroundColor = GeoJotsTheme.transparent
         menuButton.depth = .None
+        menuButton.frame = CGRectMake(15, 20, 30, 30)
+        
+        let titleLabel = UILabel();
+        titleLabel.text = "GeoJots"
+        titleLabel.font = RobotoFont.boldWithSize(25)
+        titleLabel.frame = CGRectMake(75, 20, 100, 30)
+        titleLabel.textColor = MaterialColor.white
         // Finish Setup.
 
-        toolbar.statusBarStyle = .LightContent
-        toolbar.backgroundColor = backgroundColor
-        toolbar.grid.spacing = 30
-        toolbar.titleLabel = titleLabel
-        toolbar.leftControls = [menuButton]
-        toolbar.contentInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        toolbar.backgroundColor = GeoJotsTheme.transparentGrey
+//        toolbar.depth = .Depth2
+        toolbar.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 70)
         toolbar.layer.zPosition = 10
-        toolbar.heightForPortraitOrientation = 70
+        toolbar.addSubview(menuButton)
+        toolbar.addSubview(titleLabel)
         parentView.addSubview(toolbar)
     }
 }

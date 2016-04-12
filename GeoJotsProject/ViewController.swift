@@ -11,6 +11,7 @@ import Material
 import Font_Awesome_Swift
 import Firebase
 import GeoFire
+import GoogleMaps
 
 class ViewController: UIViewController {
     private var mainNav: MainNavbar = MainNavbar()
@@ -18,7 +19,13 @@ class ViewController: UIViewController {
     private var createRoomBtn: AddButton = AddButton()
     private var locationManager = CLLocationManager()
     private var needsUpdate     = true
-    
+    private var mapView: GMSMapView?;
+    private var mapCamera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 15)
+    private var mapMarker = GMSMarker()
+    private var radiusMarker = GMSCircle()
+    private var radius: CLLocationDistance = 50
+    private var lastLocation: CLLocation = CLLocation()
+    private var radiusSlider = MaterialSlider()
 //    hard coded for now
     private var dataSourceItems: [MaterialDataSourceItem] = [
 
@@ -36,18 +43,32 @@ class ViewController: UIViewController {
         createRoomBtn.initialize(view, action: #selector(self.transitionToCreateRoom), startX: startX, startY: startY, parentRef: self)
         setUpGeolocation()
         prepareView()
+        prepareMap()
+        
+        let width = UIScreen.mainScreen().bounds.size.width - 30
+        radiusSlider.initialize(view, startX: 15, startY: 135, width: width, height: 10, parent: self, action: #selector(self.onSlide))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        needsUpdate = true
+    override func viewDidAppear(animated: Bool) {
+        //needsUpdate = true
+        
     }
     
     func prepareView() {
         view.backgroundColor = MaterialColor.white
+    }
+    
+    func onSlide(sender: UISlider){
+        let slider = sender as UISlider;
+        radius = CLLocationDistance( 50 * trunc(slider.value * 100) + 50)
+        radiusMarker.radius     = radius
+        mapView!.animateToZoom(15 - (50 * trunc(slider.value * 100) + 50)/1000)
+        radiusMarker.map        = mapView
+        
     }
     
     func setUpGeolocation(){
@@ -61,6 +82,17 @@ class ViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+    }
+    
+    func prepareMap(){
+        mapView = GMSMapView()
+        mapView!.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 140)
+        mapView!.camera = mapCamera
+        mapView!.settings.rotateGestures = false
+        mapView!.settings.scrollGestures = false
+        mapView!.settings.tiltGestures   = false
+        view.addSubview(mapView!)
+        
     }
     
     func transitionToCreateRoom(sender: UIButton!){
@@ -82,7 +114,15 @@ class ViewController: UIViewController {
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print ("GOT LOCATION")
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        lastLocation = manager.location!
+        mapView!.animateToLocation(locValue)
+        mapMarker.position      = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
+        mapMarker.map           = mapView
+        radiusMarker.position   = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+        radiusMarker.radius     = radius
+        radiusMarker.map        = mapView
+        
         if(!needsUpdate) {
             return // dont do anything if you dont need an update
         }
