@@ -13,7 +13,7 @@ class RoomList {
     private var collectionView: MaterialCollectionView!
     
     func initialize(parentView: UIView, dataSource: UICollectionViewDataSource, delegate: UICollectionViewDelegate){
-        collectionView = MaterialCollectionView(frame: CGRectMake(0, 70, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 70))
+        collectionView = MaterialCollectionView(frame: CGRectMake(0, 210, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 210))
         collectionView.registerClass(RoomCell.self, forCellWithReuseIdentifier: "MaterialCollectionViewCell")
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
@@ -26,7 +26,7 @@ class RoomList {
     
     func reload(){
         collectionView.reloadData()
-        collectionView.frame = CGRectMake(0, 140, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 70)
+        collectionView.frame = CGRectMake(0, 210, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height - 210)
     }
 }
 

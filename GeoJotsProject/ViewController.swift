@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     private var radius: CLLocationDistance = 50
     private var lastLocation: CLLocation = CLLocation()
     private var radiusSlider = MaterialSlider()
+    var userId = "";
 //    hard coded for now
     private var dataSourceItems: [MaterialDataSourceItem] = [
 
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
         prepareMap()
         
         let width = UIScreen.mainScreen().bounds.size.width - 30
-        radiusSlider.initialize(view, startX: 15, startY: 135, width: width, height: 10, parent: self, action: #selector(self.onSlide))
+        radiusSlider.initialize(view, startX: 15, startY: 205, width: width, height: 10, parent: self, action: #selector(self.onSlide))
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +87,7 @@ class ViewController: UIViewController {
     
     func prepareMap(){
         mapView = GMSMapView()
-        mapView!.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 140)
+        mapView!.frame = CGRectMake(0, 70, UIScreen.mainScreen().bounds.size.width, 140)
         mapView!.camera = mapCamera
         mapView!.settings.rotateGestures = false
         mapView!.settings.scrollGestures = false
@@ -96,7 +97,12 @@ class ViewController: UIViewController {
     }
     
     func transitionToCreateRoom(sender: UIButton!){
-        self.performSegueWithIdentifier("create", sender: sender)
+//        self.performSegueWithIdentifier("create", sender: sender)
+        let createController = CreateController()
+        createController.userId = self.userId
+        self.presentViewController(createController, animated: true, completion: nil)
+        
+        //self.navigationController!.pushViewController(createController, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -153,7 +159,8 @@ extension ViewController: CLLocationManagerDelegate {
 
 extension ViewController :MaterialCollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("asdfasdfa")
+        let roomController = RoomController()
+        navigationController?.pushViewController(roomController, animated: true)
     }
 }
 

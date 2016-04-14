@@ -13,6 +13,8 @@
 		335B49441CB3721E0024D84E /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B49431CB3721E0024D84E /* CancelButton.swift */; };
 		335B49461CB377C70024D84E /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B49451CB377C70024D84E /* TitleTextField.swift */; };
 		335B49481CB37B900024D84E /* DescriptionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335B49471CB37B900024D84E /* DescriptionTextView.swift */; };
+		33AC88691CBF497F00A345A1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC88681CBF497F00A345A1 /* LoginController.swift */; };
+		33AC886B1CBF4E2F00A345A1 /* OAuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AC886A1CBF4E2F00A345A1 /* OAuthData.swift */; };
 		33B3C8AD1CB6FD5D007A3210 /* MaterialSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B3C8AC1CB6FD5D007A3210 /* MaterialSlider.swift */; };
 		33DDC2571CB003A500C46753 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDC2561CB003A500C46753 /* AppDelegate.swift */; };
 		33DDC2591CB003A500C46753 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDC2581CB003A500C46753 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 		335B49431CB3721E0024D84E /* CancelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		335B49451CB377C70024D84E /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 		335B49471CB37B900024D84E /* DescriptionTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionTextView.swift; sourceTree = "<group>"; };
+		33AC88681CBF497F00A345A1 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		33AC886A1CBF4E2F00A345A1 /* OAuthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthData.swift; sourceTree = "<group>"; };
 		33B3C8AC1CB6FD5D007A3210 /* MaterialSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialSlider.swift; sourceTree = "<group>"; };
 		33DDC2531CB003A400C46753 /* GeoJotsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoJotsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33DDC2561CB003A500C46753 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				335B49471CB37B900024D84E /* DescriptionTextView.swift */,
 				332C16031CB4B37D00BB9EEC /* CreateMessageBoardButton.swift */,
 				33B3C8AC1CB6FD5D007A3210 /* MaterialSlider.swift */,
+				33AC88681CBF497F00A345A1 /* LoginController.swift */,
+				33AC886A1CBF4E2F00A345A1 /* OAuthData.swift */,
 			);
 			path = GeoJotsProject;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 				335B49421CB367A10024D84E /* AddButton.swift in Sources */,
 				33DDC2571CB003A500C46753 /* AppDelegate.swift in Sources */,
 				335B493D1CB32E710024D84E /* CreateController.swift in Sources */,
+				33AC88691CBF497F00A345A1 /* LoginController.swift in Sources */,
+				33AC886B1CBF4E2F00A345A1 /* OAuthData.swift in Sources */,
 				335B49481CB37B900024D84E /* DescriptionTextView.swift in Sources */,
 				33DDC2731CB1611000C46753 /* GeoJotsTheme.swift in Sources */,
 			);
@@ -381,11 +389,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GeoJotsProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josephditton.geojots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -395,11 +405,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GeoJotsProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.josephditton.geojots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

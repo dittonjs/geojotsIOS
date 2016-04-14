@@ -39,7 +39,7 @@ class MainNavbar{
         titleLabel.textColor = MaterialColor.white
         // Finish Setup.
 
-        toolbar.backgroundColor = GeoJotsTheme.transparentGrey
+        toolbar.backgroundColor = backgroundColor
 //        toolbar.depth = .Depth2
         toolbar.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 70)
         toolbar.layer.zPosition = 10

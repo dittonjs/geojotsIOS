@@ -84,14 +84,24 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods/Bolts.framework"
+  install_framework "Pods/FBSDKCoreKit.framework"
+  install_framework "Pods/FBSDKLoginKit.framework"
   install_framework "Pods/Firebase.framework"
   install_framework "Pods/Font_Awesome_Swift.framework"
   install_framework "Pods/GeoFire.framework"
   install_framework "Pods/Material.framework"
+  install_framework "Pods/Realm.framework"
+  install_framework "Pods/RealmSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods/Bolts.framework"
+  install_framework "Pods/FBSDKCoreKit.framework"
+  install_framework "Pods/FBSDKLoginKit.framework"
   install_framework "Pods/Firebase.framework"
   install_framework "Pods/Font_Awesome_Swift.framework"
   install_framework "Pods/GeoFire.framework"
   install_framework "Pods/Material.framework"
+  install_framework "Pods/Realm.framework"
+  install_framework "Pods/RealmSwift.framework"
 fi

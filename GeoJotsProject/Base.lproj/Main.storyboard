@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="z0j-hK-A81">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="z0j-hK-A81">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GeoJotsProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="GeoJotsProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,50 +19,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EOg-4e-EUz"/>
-                    <connections>
-                        <segue destination="WcR-cI-Ftn" kind="show" identifier="room" id="gzN-Ec-xq3"/>
-                        <segue destination="A60-va-hef" kind="show" identifier="create" id="za7-My-mgx"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205" y="475"/>
-        </scene>
-        <!--Room Controller-->
-        <scene sceneID="5wZ-E3-5Kb">
-            <objects>
-                <viewController id="WcR-cI-Ftn" customClass="RoomController" customModule="GeoJotsProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cxu-fD-RsF"/>
-                        <viewControllerLayoutGuide type="bottom" id="5eV-Fh-m0d"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ev9-Es-UAt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAQ-sP-6A3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2110" y="141"/>
-        </scene>
-        <!--Create Controller-->
-        <scene sceneID="iJk-qZ-ZMP">
-            <objects>
-                <viewController id="A60-va-hef" customClass="CreateController" customModule="GeoJotsProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WzN-GB-Pdu"/>
-                        <viewControllerLayoutGuide type="bottom" id="g0z-Fc-1ti"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="S4r-dW-840">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gMn-Om-lJe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2110" y="978"/>
+            <point key="canvasLocation" x="1173" y="706"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VAc-5g-LLn">

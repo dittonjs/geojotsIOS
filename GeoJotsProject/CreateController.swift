@@ -29,16 +29,18 @@ class CreateController :UIViewController {
     private var radiusSlider = MaterialSlider()
     private var radius: CLLocationDistance = 50
     private var lastLocation: CLLocation = CLLocation()
+    var userId = ""
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
+        view.backgroundColor = MaterialColor.white
         setUpGeolocation()
         
         mainNav.initialize(view)
         
         let startX: CGFloat = UIScreen.mainScreen().bounds.size.width - 15
-        var startY: CGFloat = 107
+        let startY: CGFloat = 107
         cancelButton.initialize(view, action: #selector(self.cancelCreation), startX: startX, startY: startY, parentRef: self)
         
         let top: CGFloat = 217
@@ -56,10 +58,10 @@ class CreateController :UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CreateController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        startY = UIScreen.mainScreen().bounds.size.height / 2 + 50
-        let width = UIScreen.mainScreen().bounds.size.width - 60
+//        startY = UIScreen.mainScreen().bounds.size.height / 2 + 50
+//        let width = UIScreen.mainScreen().bounds.size.width - 60
 
-        radiusSlider.initialize(view, startX: 30, startY: startY, width: width, height: 10, parent: self, action: #selector(self.onSlide))
+//        radiusSlider.initialize(view, startX: 30, startY: startY, width: width, height: 10, parent: self, action: #selector(self.onSlide))
     }
     
     func createLocation(){
@@ -68,11 +70,12 @@ class CreateController :UIViewController {
         let locationRef = Firebase(url: "https://geojots.firebaseio.com/locations")
         let geoFire = GeoFire(firebaseRef: locationRef)
         
-        let room = ["name": titleTextField.getValue(), "description": descriptionTextView.getValue()]
+        let room = ["name": titleTextField.getValue(), "description": descriptionTextView.getValue(), "created_by":self.userId]
         roomRef.childByAutoId().setValue(room, withCompletionBlock: {
             (error: NSError!, ref: Firebase!) in
             print ("\(ref.key)")
             geoFire.setLocation(self.lastLocation, forKey: ref.key)
+            self.cancelCreation()
         })
     }
     
@@ -92,7 +95,8 @@ class CreateController :UIViewController {
     
     func cancelCreation(){
         print("return to root")
-        navigationController?.popToRootViewControllerAnimated(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //navigationController!.popViewControllerAnimated(true)
     }
     
     func setUpGeolocation(){
@@ -135,8 +139,8 @@ extension CreateController: CLLocationManagerDelegate {
         mapView.animateToLocation(locValue)
         mapMarker.position      = CLLocationCoordinate2DMake(locValue.latitude, locValue.longitude)
         mapMarker.map           = mapView
-        radiusMarker.position   = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
-        radiusMarker.radius     = radius
-        radiusMarker.map        = mapView
+//        radiusMarker.position   = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
+//        radiusMarker.radius     = radius
+//        radiusMarker.map        = mapView
     }
 }
